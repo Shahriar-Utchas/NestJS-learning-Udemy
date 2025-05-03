@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { PostsService } from './provides/posts.service';
+import { CreatePostDto } from './DTO/createPost.dto';
 
 @Controller('posts')
 export class PostsController {
@@ -7,8 +8,9 @@ export class PostsController {
         private readonly postsService: PostsService,
     ) { }
 
-    @Get('/:id')
-    public getPostById(@Param('id') id: number) {
-        return this.postsService.getPostsByID(id);
+    @Post('createPost')
+    public createUser(@Body() createPostDTO: CreatePostDto) {
+        return this.postsService.createPost(createPostDTO);
     }
+
 }

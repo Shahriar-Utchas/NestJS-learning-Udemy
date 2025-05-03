@@ -1,6 +1,6 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsNumber } from "class-validator";
 
-export class CreateUserDto {
+export class CreatePostDto {
 
     @IsNotEmpty()
     name: string;
@@ -10,5 +10,9 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     content: string;
+    
+    @IsNumber()
+    @IsNotEmpty()
+    userId: number;
 
 }

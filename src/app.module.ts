@@ -13,7 +13,8 @@ import { User } from './users/user.entity';
       inject: [],
       useFactory: () => ({
         type: 'postgres',
-        entities: [User],
+        // entities: [User],
+        autoLoadEntities: true,
         synchronize: true,
         port: 5432,
         host: 'localhost',
